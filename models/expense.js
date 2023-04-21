@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import { User } from "./user.js";
+const mongoose = require('mongoose')
+const User = require('./user.js')
 const expenseScehma = new mongoose.Schema({
     email: {
         type: mongoose.Schema.Types.ObjectId,
@@ -25,4 +25,4 @@ const expenseScehma = new mongoose.Schema({
     }],
 })
 const Expense = new mongoose.model('Expense', expenseScehma)
-export { Expense }
+module.exports = Expense

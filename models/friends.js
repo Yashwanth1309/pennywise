@@ -1,5 +1,5 @@
-import mongoose, { Mongoose } from "mongoose";
-import { User } from "./user.js";
+const mongoose = require('mongoose')
+const User = require('./user.js')
 const friendsSchema = new mongoose.Schema({
     email: {
         type: mongoose.Schema.Types.ObjectId,
@@ -17,7 +17,6 @@ const friendsSchema = new mongoose.Schema({
             default: 0
         }
     }],
-
 })
 const Friends = new mongoose.model('Friend', friendsSchema)
-export { Friends }
+module.exports = Friends
