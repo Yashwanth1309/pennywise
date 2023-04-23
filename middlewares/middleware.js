@@ -1,7 +1,7 @@
 const isLoggedIn = (req, res, next) => {
     //console.log(req.isAuthenticated())
     if (!req.isAuthenticated()) {
-        return res.redirect('/login')
+        return res.redirect('/pennywise/user/login')
     }
 
     next()

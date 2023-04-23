@@ -12,7 +12,7 @@ const User = require('./models/user.js')
 const Expense = require('./models/expense.js')
 const Friend = require('./models/friends.js')
 const isLoggedIn = require('./middlewares/middleware.js')
-
+const Authentication = require('./routes/Authentication.js')
 const app = express()
 app.use(express.urlencoded({ extended: true }))
 app.use(mongo_sanitize())
@@ -53,40 +53,11 @@ mongoose.connect(process.env.DB_URL, {
     .catch((e) => {
         console.error.bind(e)
     })
-app.post('/register', async(req, res) => {
-    try {
-        const { email, username, password, phno } = req.body
-        const user = new User({ email, username, phno })
-        const registeredUser = await User.register(user, password)
-
-        req.logIn(registeredUser, err => {
-            if (err) {
-                return next(err)
-            }
-        })
-        res.redirect('/')
-    } catch (error) {
-        // console.log(e.message)
-        res.redirect('/register')
-    }
+app.use('/pennywise/user', Authentication)
+app.get('/', isLoggedIn, (req, res) => {
+    res.send('Home')
 })
-app.post('/login', passport.authenticate('local', { failureFlash: false, failureRedirect: '/login' }), (req, res) => { res.send('login') })
-app.get('/login', (req, res) => {
-    res.send('Please login')
-})
-app.get('/logout', isLoggedIn, (req, res) => {
-    req.logOut((e) => {
-        if (e) {
-            console.log(e)
-            return
-        }
-        return res.redirect('/login')
-    })
-    res.redirect('/login')
-})
-app.get('/', isLoggedIn, async(req, res) => {
-    res.send('<h1>Home of pennywise</h1>')
-})
-app.listen(3000, () => {
-    console.log('Listening to port 3000')
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+    console.log(`Listening to port ${PORT}`)
 })
