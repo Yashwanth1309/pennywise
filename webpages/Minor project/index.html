@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PennyWise - Expense Tracker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./dashboard.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <!-- Nav Bar  -->
+
+  <nav class="navbar navbar-expand-md ">
+    <a class="navbar-brand" href="#">
+      <img src="pennywise-logo.png" alt="P">
+      PennyWise
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Insights</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Track Loans</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">@TonyDeCosta</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- dashboard heading -->
+
+  <div class="head container">
+    <h1>Hello User123 </h1>
+    <h3>Welcome to your Dashboard</h3>
+    <p>You've spent </p>
+    <p>Rs 50</p>
+      <p>this month</p>
+  </div>
+
+<div class="second">
+<!-- Dashboard user input form -->
+<h2 class="cent">Add or Delete your expenses here</h2>
+<div>
+  <form class="inp-form">
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" value="2023-04-22">
+    <label for="item">Item:</label>
+    <input type="text" name="title" onChange={handleChange} placeholder="Add item">
+    <label for="amount">Amount:</label>
+    <input type="text" name="content" placeholder="Amount in Rs" rows="1">
+    <button class="inp-but" >+</button>
+  </form>
+</div>
+
+  <!-- dashboard card notes -->
+  <div class="scrolling-wrapper">
+    <!-- <div class="card-space"> -->
+    <section class="my-5" style="max-width: 13rem;">
+
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote blockquote-custom bg-white px-3 pt-4">
+            <div class="blockquote-custom-icon shadow-1-strong">
+               23/02/23
+            </div>
+            <p class="card_p">
+              Dosa
+            </p>
+            <div class=" pt-2 mt-2 border-top">
+              <p class="card_p">
+                Rs 50
+              </p>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+
+    </section>
+    <!-- </div> -->
+    <!-- <div class="card-space"> -->
+    <section class="my-5" style="max-width: 13rem;">
+
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote blockquote-custom bg-white px-3 pt-4">
+            <div class="blockquote-custom-icon  shadow-1-strong">
+               23/02/23
+            </div>
+            <p class="card_p">
+              Dosa
+            </p>
+            <div class=" pt-2 mt-2 border-top">
+              <p class="card_p">
+                Rs 50
+              </p>
+            </div>
+          </blockquote>
+        </div>
+      </div>
+
+    </section>
+  <!-- </div> -->
+  <!-- <div class="card-space"> -->
+  <section class="my-5" style="max-width: 13rem;">
+
+    <div class="card">
+      <div class="card-body">
+        <blockquote class="blockquote blockquote-custom bg-white px-3 pt-4">
+          <div class="blockquote-custom-icon shadow-1-strong">
+             23/02/23
+          </div>
+          <p class="card_p">
+            Dosa
+          </p>
+          <div class=" pt-2 mt-2 border-top">
+            <p class="card_p">
+              Rs 50
+            </p>
+          </div>
+        </blockquote>
+      </div>
+    </div>
+
+  </section>
+<!-- </div> -->
+<section class="my-5" style="max-width: 13rem;">
+
+  <div class="card">
+    <div class="card-body">
+      <blockquote class="blockquote blockquote-custom bg-white px-3 pt-4">
+        <div class="blockquote-custom-icon shadow-1-strong">
+           23/02/23
+        </div>
+        <p class="card_p">
+          Dosa
+        </p>
+        <div class=" pt-2 mt-2 border-top">
+          <p class="card_p">
+            Rs 50
+          </p>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+
+</section>
+<section class="my-5" style="max-width: 13rem;">
+
+  <div class="card">
+    <div class="card-body">
+      <blockquote class="blockquote blockquote-custom bg-white px-3 pt-4">
+        <div class="blockquote-custom-icon shadow-1-strong">
+           23/02/23
+        </div>
+        <p class="card_p">
+          Dosa
+        </p>
+        <div class=" pt-2 mt-2 border-top">
+          <p class="card_p">
+            Rs 50
+          </p>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+
+</section>
+<section class="my-5" style="max-width: 13rem;">
+
+  <div class="card">
+    <div class="card-body">
+      <blockquote class="blockquote blockquote-custom bg-white px-3 pt-4">
+        <div class="blockquote-custom-icon shadow-1-strong">
+           23/02/23
+        </div>
+        <p class="card_p">
+          Dosa
+        </p>
+        <div class=" pt-2 mt-2 border-top">
+          <p class="card_p">
+            Rs 50
+          </p>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+
+</section>
+<section class="my-5" style="max-width: 13rem;">
+
+  <div class="card">
+    <div class="card-body">
+      <blockquote class="blockquote blockquote-custom bg-white px-3 pt-4">
+        <div class="blockquote-custom-icon shadow-1-strong">
+           23/02/23
+        </div>
+        <p class="card_p">
+          Dosa
+        </p>
+        <div class=" pt-2 mt-2 border-top">
+          <p class="card_p">
+            Rs 50
+          </p>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+
+</section>
+<section class="my-5" style="max-width: 13rem;">
+
+  <div class="card">
+    <div class="card-body">
+      <blockquote class="blockquote blockquote-custom bg-white px-3 pt-4">
+        <div class="blockquote-custom-icon shadow-1-strong">
+           23/02/23
+        </div>
+        <p class="card_p">
+          Dosa
+        </p>
+        <div class=" pt-2 mt-2 border-top">
+          <p class="card_p">
+            Rs 50
+          </p>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+
+</section>
+
+</div>
+</div>
+
+<!-- dashboard expense history -->
+<div class="container-fluid third" style="background-color:#296099;padding-top:50px;padding-bottom: 75px;">
+<h2 class="cent">Your expense history</h2>
+<div class="container">
+    <form class="hist-form">
+      <div class="form-group">
+        <label for="date-input">Date:</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" onclick="decrementDate()">&#x25C0;</span>
+          </div>
+          <input type="date" class="form-control" id="date-input">
+          <div class="input-group-append">
+            <span class="input-group-text" onclick="incrementDate()">&#x25B6;</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="sort-select">Sort By:</label>
+        <select class="form-control" id="sort-select">
+          <option value="amount">Amount</option>
+          <option value="date">Date</option>
+          <option value="category">Category</option>
+        </select>
+      </div>
+      <button class="history-but" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Amount in Rs</th>
+          <th>Date</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Groceries</td>
+          <td>2000</td>
+          <td>2023-04-21</td>
+          <td>Food</td>
+        </tr>
+        <tr>
+          <td>Gas</td>
+          <td>1000</td>
+          <td>2023-04-20</td>
+          <td>Transportation</td>
+        </tr>
+        <tr>
+          <td>Movie tickets</td>
+          <td>500</td>
+          <td>2023-04-19</td>
+          <td>Entertainment</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- links to other pages  -->
+<div class="forth">
+
+	<button type="button" class="btn btn-primary dash-link">Smart Insights</button>
+  	<button type="button" class="btn btn-primary ml-auto dash-link">Track Loans</button>
+</div>
+<div class="loans">
+  <h1 class="hloan">Loan Management</h1>
+	<h2 class="cent">Add/Delete Loans </h2>
+  <div>
+    <form class="inp-form">
+      <label for="date">Date:</label>
+      <input type="date" id="Ldate" name="Ldate" value="LDate">
+      <label for="item">Loan Type</label>
+      <select name="LB" id="lb" required>
+        <option value="sel">Select the Loan Type</option>
+        <option class='opt'value="lend">Lent</option>
+        <option class='opt'value="bor">Borrowed</option>
+    </select>
+      <label for="amount">Amount:</label>
+      <input type="number" name="content" placeholder="Amount in Rs" rows="1">
+      <button class="inp-but" id="laddbtn" >+</button>
+    </form>
+  </div>
+  <section class="my-5" style="max-width: 30rem;">
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <p class="btn btn-secondary">24-04-2023</p>
+            <hr>
+            <h5 class="card-title">Lent</h5>
+            <hr>
+            <pre class="card-text">Rs.500 <button class="inp-but cross">x</button></pre> 
+            </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <a href="#" class="btn btn-secondary">24-04-2023</a>
+            <hr>
+            <h5 class="card-title">Borrowed</h5>
+            <hr>
+            <pre class="card-text">Rs.500 <button class="inp-but cross">x</button></pre> 
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <div class="container">
+      <table class="ltable">
+        <tr>
+          <th>Total Loan <br> Amount</th>
+          <th>Amount of <br> Loan paid</th>
+          <th>Amount left <br> to be paid</th>
+          <th style="width: 40%">Reason</th>
+          <th>Date</th>
+          <th>Type <br> (Lent/Borrowed)</th>
+        </tr>
+        <tr style="text-align: center;">
+          <td>50000</td>
+          <td>20000</td>
+          <td>30000</td>
+          <td>bike loan</td>
+          <td>25/04/2023</td>
+          <td>Borrowed</td>
+        </tr>
+        
+      </table>
+    </div>
+
+</div>
+
+
+
+<script src="index.js" charset="utf-8"></script>
+</body>
+</html>
