@@ -2,7 +2,9 @@ const mongoose = require('mongoose')
 const User = require('./user.js')
 const expenseScehma = new mongoose.Schema({
     email: {
-        type: mongoose.Schema.Types.ObjectId,
+        // type: mongoose.Schema.Types.ObjectId,
+        type:String,
+        default:"user123",
         required: true,
         ref: 'User'
     },
@@ -13,6 +15,7 @@ const expenseScehma = new mongoose.Schema({
         },
         category: {
             type: String,
+            default: "NA",
             required: true
         },
         description: {

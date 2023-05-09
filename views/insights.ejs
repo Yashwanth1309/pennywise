@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PennyWise - Expense Tracker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/Smart_Insights/main.css">
+  <link rel="stylesheet" href="/Smart_Insights/chart files/charty.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <!-- Nav Bar  -->
+
+  <nav class="navbar navbar-expand-md ">
+    <a class="navbar-brand" href="#">
+      <img src="pennywise-logo.png" alt="P">
+      PennyWise
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Track Loans</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">@TonyDeCosta</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- dashboard heading -->
+
+  <div class="head container">
+    <h1 >Smart Insights</h1>
+  </div>
+
+<div class="second">
+<!-- Dashboard user input form -->
+<h2 class="cent">Categories</h2>
+<div>
+  <form class="inp-form">
+    <label for="date">Year</label>
+    <input type="number" min="1900" max="2099" step="1" value="2023"/>
+    <br>
+    <h3 style="text-align:center;color:black;">Or</h3>
+    <label for="item">Month</label>
+    <input type="month" id="start" name="start" min="2018-03" value="2018-05">
+    <button class="inp-but" >+</button>
+  </form>
+</div>
+<div id="chart" style="color:black;">
+
+</div>
+</div>
+
+<!-- dashboard expense history -->
+<div class="container-fluid third" style="background-color:#401c64;padding-top:50px;padding-bottom: 75px;color:white;">
+<h2 class="cent">Linear Analysis</h2>
+<form class="inp-form">
+  <label for="date">Year</label>
+  <input type="number" min="1900" max="2099" step="1" value="2023"/>
+  <button class="inp-but" >+</button>
+</form>
+<div class="container">
+  <h3 class="cat-text">Month wise breakup</h3>
+  <div id="linear_1"></div>
+</div>
+<h3 class="cat-text">Category wise breakup</h3>
+<div id="linechart_material" style="max-width:1150px;max-height:600px;"> </div>
+</div>
+
+<!-- links to other pages  -->
+<div class="forth">
+
+<a href="/user123/dashboard"><button type="button" class="btn btn-primary dash-link">Dashboard</button></a>
+<a href="/user123/loans">  <button type="button" class="btn btn-primary ml-auto dash-link">Track Loans</button></a> 
+<script src="/Smart_Insights/dashboard.js" charset="utf-8"></script>
+<script src="/Smart_Insights/chart files/charty.js"></script>
+<script src="/Smart_Insights/chart files/main.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="/Smart_Insights/google_charts1.js" charset="utf-8"></script>
+<script src="/Smart_Insights/google_charts2.js" charset="utf-8"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PennyWise - Expense Tracker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/loan/styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <!-- Nav Bar  -->
+
+  <nav class="navbar navbar-expand-md ">
+    <a class="navbar-brand" href="#">
+      <img src="pennywise-logo.png" alt="P">
+      PennyWise
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Track Loans</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">@TonyDeCosta</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- dashboard heading -->
+
+
+<div class="loans">
+  <h1 class="hloan">Loan Management</h1>
+	<h2 class="cent">Add/Delete Loans </h2>
+  <div>
+    <form class="inp-form" method="post" action="/<%= user %>/loans_add">
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" value="LDate">
+      <label for="type">Loan Type</label>
+      <select name="loan_type" id="lb" required>
+        <option value="sel">Select the Loan Type</option>
+        <option class='opt'value="lent" name="lent">Lent</option>
+        <option class='opt'value="borrowed" name="borrowed">Borrowed</option>
+    </select>
+    <label for="From">From</label>
+    <input type="text" name="person"  placeholder="person">
+      <label for="amount">Amount:</label>
+      <input type="number" name="amount" placeholder="Amount in Rs" rows="1">
+      <label for="reason">Reason</label>
+      <input type="text" name="reason" placeholder="Reason" >
+      <button class="inp-but" id="laddbtn" name="loan_button">+</button>
+    </form>
+  </div>
+  <div class="scrolling-wrapper">
+    <!-- <div class="card-space"> -->
+    <% loans.forEach(function(item) { %>
+    <% item.friends.forEach(function(LoanItem) { %>
+    <section class="my-5">
+     <form action="/<%= user %>/loans_delete" method="post">
+      <input type="hidden" name="loanid" value="<%= LoanItem._id %>">
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote blockquote-custom bg-white px-3 pt-4">
+            <div class="blockquote-custom-icon shadow-1-strong">
+              <%= LoanItem.date.toLocaleDateString("en-GB") %>
+            </div>
+            <p class="card_p">
+              <%= LoanItem.type %> to / from <%= LoanItem.name %>
+            </p>
+            <div class=" pt-2 mt-2 border-top">
+              <p class="card_p">
+                <%= LoanItem.amount %>
+              </p>
+            </div>
+          </blockquote>
+        </div>
+        <button type="submit" class="del-but" >-</button>
+      </div>
+</form>
+    </section>
+    <%  }); }); %>
+
+</div>
+
+<h2 class="cent">Track Your loans </h2>
+<div class="container">
+    <form action="/<%= user %>/loan_history" method="post" class="hist-form">
+      <div class="form-group hide_or_not">
+        <label for="date-input">Date:</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" onclick="decrementDate()">&#x25C0;</span>
+          </div>
+          <input type="date" class="form-control" id="date-input" name="date_input">
+          <div class="input-group-append">
+            <span class="input-group-text" onclick="incrementDate()">&#x25B6;</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group" >
+        <label for="sort-select">Sort By:</label>
+        <select class="form-control" id="sort-select" name="sort_select">
+          <option value="" disabled selected>Select an option</option>
+          <option name="any" value="any">Any</option>
+          <option name="type" value="type">Type</option>
+          <option name="amount_asc" value="amount_asc">Amount Ascending</option>
+          <option name="amount_dec" value="amount_dec">Amount Decending</option>
+          <!-- <option value="rem_amount_asc">Remaining Amount Ascending</option>
+          <option value="rem_amount_dec">Remaining Amount Ascending</option> -->
+          <option name="date_asc" value="date_asc">Date Ascending</option>
+          <option name="date_dec" value="date_dec">Date Decending</option>
+
+        </select>
+      </div>
+      <div style="text-align:center;" class="form-group">
+        <button class="mid_button" type="submit" name="show_all" value="true">Show all</button>
+      </div>
+      <button class="history-but" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+    <div class="container">
+      <table class="ltable">
+        <tr>
+          <th>Date</th>
+          <th>Type</th>
+          <th>From</th>
+          <th style="width: 40%">Reason</th>
+          <th>Amount</th>
+          <!-- <th>Amout paid</th>
+          <th>Remaining amount</th> -->
+        </tr>
+        <% if(items.length > 0) { %>
+        <% items.forEach((item) => { %>
+        <%   item.friends.forEach((friend) => { %>
+        <tr style="text-align: center;">
+          <td><% if(friend.date) { %>
+            <%= friend.date.toLocaleDateString("en-GB") %>
+          <% } %></td>
+          <td><%= friend.type %></td>
+          <td><%= friend.name %></td>
+
+          <td><%= friend.reason %></td>
+          <td><%= friend.amount %></td>
+          <!-- <td>30000</td>
+          <td>20000</td> -->
+        </tr>
+        <% }); %>
+      <% }); %>
+      <% } else { %>
+        <tr>
+          <td colspan="4">No loans found for the selected date</td>
+        </tr>
+      <% } %>
+      </table>
+    </div>
+
+
+
+</div>
+<!-- links to other pages  -->
+<div class="forth">
+
+<a href="/<%= user %>/dashboard"><button type="button" class="btn btn-primary dash-link">Dashboard</button></a>
+<a href="/<%= user %>/insights">  <button type="button" class="btn btn-primary ml-auto dash-link">Insights</button></a>
+<script src="/dashboard/dashboard.js" charset="utf-8"></script>
+</div>
+
+
+<script src="/loan/index.js" charset="utf-8"></script>
+</body>
+</html>
